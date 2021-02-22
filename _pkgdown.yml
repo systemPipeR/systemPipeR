@@ -1,0 +1,27 @@
+title: systemPipeR
+home:
+  links:
+  - text: Download from Github
+    href: https://github.com/systemPipeR/systemPipeR/
+  - text: Report a bug
+    href: https://github.com/systemPipeR/systemPipeR/issues
+navbar:
+  components:
+    home:
+      text: SPR Home
+      icon: "fa fa-home"
+      href: https://systempipe.org/spr/
+    articles: ~
+    intro: ~
+authors:
+   Daniela Cassol:
+     href: https://www.dcassol.com/
+   Thomas Girke:
+     href: http://girke.bioinformatics.ucr.edu/
+template:
+  params:
+    ganalytics: G-CCMXLYXWYV
+    bootswatch: flatly
+#    docsearch:
+#      api_key: API_KEY
+#      index_name: INDEX_NAME
