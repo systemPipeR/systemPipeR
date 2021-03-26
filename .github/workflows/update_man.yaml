@@ -81,7 +81,7 @@ jobs:
       - name: run pkgdown
         run: |
           pkgdown::build_home()
-          pkgdown::build_reference()
+          pkgdown::build_reference(devel = TRUE)
           pkgdown::build_news()
         shell: Rscript {0}
 
