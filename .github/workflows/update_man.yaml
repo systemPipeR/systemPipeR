@@ -1,4 +1,3 @@
-
 name: update_docs
 on:
   schedule:
@@ -45,7 +44,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         id: install-r
         with:
-          r-version: ${{ matrix.config.r }}
+          r-version: 'release'
           http-user-agent: ${{ matrix.config.http-user-agent }}
 
       - uses: r-lib/actions/setup-pandoc@v1
@@ -73,7 +72,6 @@ jobs:
         run: |
           pak::local_install_dev_deps(upgrade = TRUE)
           pak::pkg_install("pkgdown")
-          pak::pkg_install("pkgload")
         shell: Rscript {0}
 
       - name: clear docs
@@ -82,7 +80,7 @@ jobs:
       - name: run pkgdown
         run: |
           pkgdown::build_home()
-          pkgdown::build_reference(devel = TRUE)
+          pkgdown::build_reference()
           pkgdown::build_news()
         shell: Rscript {0}
 
