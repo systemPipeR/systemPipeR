@@ -16,7 +16,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: check man folder hash
         run: |
-          echo $(ls -al)
+          echo $(pwd -LP)
+          ls -al
           bash .github/bash/update_man.sh
       - name: send results to next job
         id: update_gh
