@@ -22,9 +22,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-16.04, r: '4.0.5', rspm: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
-          - {os: macOS-latest, r: '4.0.3'}
-          - {os: windows-latest, r: '4.0.3'}  
+          - {os: ubuntu-20.04, r: '4.1.0', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: macOS-latest, r: '4.1.0'}
+          - {os: windows-latest, r: '4.1.0'}  
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -58,16 +58,16 @@ jobs:
         env:
           RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
         run: |
-          sudo apt-get install libcurl4-openssl-dev
           sudo apt-get install libv8-dev
-
+          sudo apt install libcurl4-openssl-dev
+         
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
-          install.packages(c("BiocManager", "ape", "knitcitations", "DOT", "V8", "kableExtra"))
-          BiocManager::install("systemPipeR")
-          BiocManager::install("systemPipeRdata")
+          install.packages(c("BiocManager", "ape", "knitcitations", "DOT", "V8", "kableExtra", "docopt"))
+          BiocManager::install("tgirke/systemPipeR")
+          BiocManager::install("tgirke/systemPipeRdata")
         shell: Rscript {0}
 
       - name: Check
@@ -78,7 +78,7 @@ jobs:
 
       - name: Upload check results
         if: failure()
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
