@@ -81,9 +81,9 @@ loadWorkflow <- function(targets=NULL, wf_file, input_file, dir_path=".") {
 loadWF <- loadWorkflow
 
 ## Usage:
-# targets <- system.file("extdata", "targets.txt", package="systemPipeR")
+# targetspath <- system.file("extdata", "targets.txt", package="systemPipeR")
 # dir_path <- system.file("extdata/cwl/hisat2", package="systemPipeR")
-# WF <- loadWF(targets=targets, wf_file="hisat2-se/hisat2-mapping-se.cwl",
+# WF <- loadWF(targets=targetspath, wf_file="hisat2-se/hisat2-mapping-se.cwl",
 #              input_file="hisat2-se/hisat2-mapping-se.yml", dir_path=dir_path)
 
 ###################################################
@@ -541,7 +541,7 @@ assembleCommandlineList <- function(clt=WF$clt[[1]]) {
     basecommand <- clt$baseCommand
     arguments <- clt$arguments
     ## Special case for Rscript --  get the absolute path to the Rscript command
-    if(basecommand=="Rscript"){
+    if("Rscript" %in% basecommand){
         basecommand <- file.path(R.home('bin'), 'Rscript')
     }
     if(!is.null(arguments)){
