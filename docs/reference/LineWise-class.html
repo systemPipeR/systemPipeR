@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class "EnvModules" — EnvModules-class • systemPipeR</title>
+<title>Class "LineWise" — LineWise-class • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,15 +39,8 @@
 
 
 
-<meta property="og:title" content="Class "EnvModules" — EnvModules-class" />
-<meta property="og:description" content="The function module enables use of the Environment Modules system
-(http://modules.sourceforge.net/) from within the R environment.  By default
-the user's login shell environment (ie. bash -l) will be used to
-initialize the current session.  The module function can also; load or unload
-specific software, list all the loaded software within the current session, and
-list all the applications available for loading from the module system.
-Lastly, the module function can remove all loaded software from the current
-session." />
+<meta property="og:title" content="Class "LineWise" — LineWise-class" />
+<meta property="og:description" content="LineWise class stores all the R chunk from a RMarkdown file." />
 
 
 
@@ -121,68 +114,70 @@ session." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Class <code>"EnvModules"</code></h1>
+    <h1>Class <code>"LineWise"</code></h1>
     
-    <div class="hidden name"><code>EnvModules-class.Rd</code></div>
+    <div class="hidden name"><code>LineWise-class.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The function <code>module</code> enables use of the Environment Modules system
-(http://modules.sourceforge.net/) from within the R environment.  By default
-the user's login shell environment (ie. <code>bash -l</code>) will be used to
-initialize the current session.  The module function can also; load or unload
-specific software, list all the loaded software within the current session, and
-list all the applications available for loading from the module system.
-Lastly, the module function can remove all loaded software from the current
-session.</p>
+    <p><code>LineWise class</code> stores all the R chunk from a RMarkdown file.</p>
     </div>
 
 
 
     <h2 class="hasAnchor" id="objects-from-the-class"><a class="anchor" href="#objects-from-the-class"></a>Objects from the Class</h2>
 
-    <p>Objects can be created by calls of the form <code>new("EnvModules", ...)</code>.</p>
+    <p>Objects can be created by calls of the form <code>new("LineWise", ...)</code>.</p>
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     <p></p><dl>
-    <dt><code>available_modules</code>:</dt><dd><p>Object of class <code>"list"</code> ~~</p></dd>
-    <dt><code>loaded_modules</code>:</dt><dd><p>Object of class <code>"list"</code> ~~</p></dd>
-    <dt><code>default_modules</code>:</dt><dd><p>Object of class <code>"list"</code> ~~</p></dd>
-    <dt><code>modulecmd</code>:</dt><dd><p>Object of class <code>"character"</code> ~~</p></dd>
+    <dt><code>codeLine</code>:</dt><dd><p>Object of class <code>"character"</code> storing data from Rc chunk.</p></dd>
+    <dt><code>codeChunkStart</code>:</dt><dd><p>Object of class <code>"interger"</code> storing Start line from the rmdPath file.</p></dd>
+    <dt><code>rmdPath</code>:</dt><dd><p>Object of class <code>"character"</code> storing path from the rmdPath file.</p></dd>
+    <dt><code>stepName</code>:</dt><dd><p>Object of class <code>"character"</code> storing Step Name.</p></dd>
+    <dt><code>dependency</code>:</dt><dd><p>Object of class <code>"character"</code> storing dependency steps.</p></dd>
   
 </dl>
 
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     <p></p><dl>
-    <dt>[</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>[[</dt><dd><p><code>signature(x = "EnvModules", i = "ANY", j = "missing")</code>: ...</p></dd>
-    <dt>[[&lt;-</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>$</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>available_modules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "EnvModules", to = "list")</code>: ...</p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "list", to = "EnvModules")</code>: ...</p></dd>
-    <dt>default_modules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>EnvModules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>loaded_modules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>modulecmd</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>names</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>show</dt><dd><p><code>signature(object = "EnvModules")</code>: ...</p></dd>
+    <dt>[</dt><dd><p><code>signature(x = "LineWise")</code>: subsetting of class with bracket operator</p></dd>
+    <dt>[[</dt><dd><p><code>signature(x = "LineWise", i = "ANY", j = "missing")</code>: subsetting of class with bracket operator</p></dd>
+    <dt>[[&lt;-</dt><dd><p><code>signature(x = "LineWise")</code>: replacement method for LineWise class</p></dd>
+    <dt>$</dt><dd><p><code>signature(x = "LineWise")</code>: extracting slots elements by name</p></dd>
+    <dt>codeLine</dt><dd><p><code>signature(x = "LineWise")</code>: ...</p></dd>
+    
+    <dt>coerce</dt><dd><p><code>signature(from = "LineWise", to = "list")</code>: <code>as(LineWise, "list")</code></p></dd>
+    <dt>coerce</dt><dd><p><code>signature(from = "list", to = "LineWise")</code>: <code>as(list, "LineWise")</code></p></dd>
+    <dt>length</dt><dd><p><code>signature(x = "LineWise")</code>: extracts number of R code lines</p></dd>
+    <dt>linewise</dt><dd><p><code>signature(x = "LineWise")</code>: Coerce back to list <code>as(LineWise, "list")</code></p></dd>
+    <dt>names</dt><dd><p><code>signature(x = "LineWise")</code>: extracts slot names</p></dd>
+    <dt>rmdPath</dt><dd><p><code>signature(x = "LineWise")</code>: extracts path of the Rmarkdown files</p></dd>
+    <dt>show</dt><dd><p><code>signature(object = "LineWise")</code>: summary view of <code>LineWise</code> objects</p></dd>
+    <dt>appendCodeLine&lt;-</dt><dd><p><code>signature(x = "LineWise")</code>: replacement method for append a code line</p></dd>
+    <dt>replaceCodeLine&lt;-</dt><dd><p><code>signature(x = "LineWise")</code>: replacement method for replace a code line</p></dd>
 	 
 </dl>
 
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Jordan Hayes and Daniela Cassol</p>
+    <p>Daniela Cassol</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='SYSargsList-class.html'>SYSargsList</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"EnvModules"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Class "EnvModules" [package "systemPipeR"]
+    <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"LineWise"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Class "LineWise" [package "systemPipeR"]
 #&gt; 
 #&gt; Slots:
-#&gt;                                                                               
-#&gt; Name:  available_modules    loaded_modules   default_modules         modulecmd
-#&gt; Class:              list              list              list         character</div></pre>
+#&gt;                                                                   
+#&gt; Name:        codeLine codeChunkStart        rmdPath       stepName
+#&gt; Class:     expression        integer      character      character
+#&gt;                      
+#&gt; Name:      dependency
+#&gt; Class:      character</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class "EnvModules" — EnvModules-class • systemPipeR</title>
+<title>LineWise — LineWise • systemPipeR</title>
 
 
 <!-- jquery -->
@@ -39,15 +39,8 @@
 
 
 
-<meta property="og:title" content="Class "EnvModules" — EnvModules-class" />
-<meta property="og:description" content="The function module enables use of the Environment Modules system
-(http://modules.sourceforge.net/) from within the R environment.  By default
-the user's login shell environment (ie. bash -l) will be used to
-initialize the current session.  The module function can also; load or unload
-specific software, list all the loaded software within the current session, and
-list all the applications available for loading from the module system.
-Lastly, the module function can remove all loaded software from the current
-session." />
+<meta property="og:title" content="LineWise — LineWise" />
+<meta property="og:description" content="S4 class container for storing parameters of R-based software." />
 
 
 
@@ -121,68 +114,56 @@ session." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Class <code>"EnvModules"</code></h1>
+    <h1>LineWise</h1>
     
-    <div class="hidden name"><code>EnvModules-class.Rd</code></div>
+    <div class="hidden name"><code>LineWise.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The function <code>module</code> enables use of the Environment Modules system
-(http://modules.sourceforge.net/) from within the R environment.  By default
-the user's login shell environment (ie. <code>bash -l</code>) will be used to
-initialize the current session.  The module function can also; load or unload
-specific software, list all the loaded software within the current session, and
-list all the applications available for loading from the module system.
-Lastly, the module function can remove all loaded software from the current
-session.</p>
+    <p>S4 class container for storing parameters of R-based software.</p>
     </div>
 
+    <pre class="usage"><span class='fu'>LineWise</span><span class='op'>(</span><span class='va'>code</span>, stepName<span class='op'>=</span><span class='st'>"default"</span>, codeChunkStart<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/integer.html'>integer</a></span><span class='op'>(</span><span class='op'>)</span>, rmdPath<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span>, dependency<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>code</th>
+      <td><p>R code</p></td>
+    </tr>
+    <tr>
+      <th>codeChunkStart</th>
+      <td><p>R Markdown line start</p></td>
+    </tr>
+    <tr>
+      <th>rmdPath</th>
+      <td><p>path of R Markdown file</p></td>
+    </tr>
+    <tr>
+      <th>stepName</th>
+      <td><p>Step Name</p></td>
+    </tr>
+    <tr>
+      <th>dependency</th>
+      <td><p>dependency</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="objects-from-the-class"><a class="anchor" href="#objects-from-the-class"></a>Objects from the Class</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Objects can be created by calls of the form <code>new("EnvModules", ...)</code>.</p>
-    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
-
-    <p></p><dl>
-    <dt><code>available_modules</code>:</dt><dd><p>Object of class <code>"list"</code> ~~</p></dd>
-    <dt><code>loaded_modules</code>:</dt><dd><p>Object of class <code>"list"</code> ~~</p></dd>
-    <dt><code>default_modules</code>:</dt><dd><p>Object of class <code>"list"</code> ~~</p></dd>
-    <dt><code>modulecmd</code>:</dt><dd><p>Object of class <code>"character"</code> ~~</p></dd>
-  
-</dl>
-
-    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
-
-    <p></p><dl>
-    <dt>[</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>[[</dt><dd><p><code>signature(x = "EnvModules", i = "ANY", j = "missing")</code>: ...</p></dd>
-    <dt>[[&lt;-</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>$</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>available_modules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "EnvModules", to = "list")</code>: ...</p></dd>
-    <dt>coerce</dt><dd><p><code>signature(from = "list", to = "EnvModules")</code>: ...</p></dd>
-    <dt>default_modules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>EnvModules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>loaded_modules</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>modulecmd</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>names</dt><dd><p><code>signature(x = "EnvModules")</code>: ...</p></dd>
-    <dt>show</dt><dd><p><code>signature(object = "EnvModules")</code>: ...</p></dd>
-	 
-</dl>
-
+    <p><code>LineWise</code> object</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <p>Jordan Hayes and Daniela Cassol</p>
+    <p>Daniela Cassol</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code>showClass("LineWise")</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>showClass</span><span class='op'>(</span><span class='st'>"EnvModules"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Class "EnvModules" [package "systemPipeR"]
-#&gt; 
-#&gt; Slots:
-#&gt;                                                                               
-#&gt; Name:  available_modules    loaded_modules   default_modules         modulecmd
-#&gt; Class:              list              list              list         character</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>LineWise</span><span class='op'>(</span><span class='st'>"1+1"</span>, stepName<span class='op'>=</span><span class='st'>"NewStep"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #BBBB00; font-weight: bold;'>Instance of 'LineWise'</span>
+#&gt;     R chunk length: 1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
