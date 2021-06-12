@@ -38,7 +38,6 @@ test_that("check_SYSargs", {
     for(i in seq(along=outfile1(args))) asBam(file=outfile1(args)[i], 
                                               destination=gsub(".sam", "", outfile1(args)[i]), overwrite=TRUE, indexDestination=TRUE)
     expect_true(file.exists(outpaths(args)))
-    
     # requires Hisat2 installed... 
     dir_path <- system.file("extdata/cwl", package = "systemPipeR")
     idx <- loadWorkflow(targets = NULL, wf_file = "hisat2/hisat2-index.cwl", input_file = "hisat2/hisat2-index.yml",
@@ -46,12 +45,16 @@ test_that("check_SYSargs", {
     idx <- renderWF(idx)
     cmdlist(idx)
     ## runCommandline() 
-    runCommandline(idx, make_bam = FALSE)
+    runCommandline(idx, make_bam = FALSE, dir=FALSE)
     ## Construct SYSargs object from param and targets files 
     param <- system.file("extdata", "hisat2.param", package="systemPipeR")
     targets <- system.file("extdata", "targets.txt", package="systemPipeR")
     args <- systemArgs(sysma=param, mytargets=targets)
-    runCommandline(args[2])
+    runCommandline(args[2], make_bam = TRUE, dir=FALSE)
     expect_s4_class(args, "SYSargs")
     expect_true(file.exists(outpaths(args[2])))
+    ## alignStats()
+    read_statsDF <- alignStats(args[2]) 
+    expect_s3_class(read_statsDF, "data.frame")
+    write.table(read_statsDF, "results/alignStats.xls", row.names=FALSE, quote=FALSE, sep="\t")
 })
