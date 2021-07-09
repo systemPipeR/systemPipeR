@@ -26,7 +26,6 @@ setMethod(f = "codeChunkStart", signature = "LineWise", definition = function(x)
   return(x@codeChunkStart)
 })
 
-setGeneric(name = "stepName", def = function(x) standardGeneric("stepName"))
 setMethod(f = "stepName", signature = "LineWise", definition = function(x) {
   return(x@stepName)
 })
@@ -74,7 +73,7 @@ setAs(from = "LineWise", to = "list",  def = function(from) {
 setMethod(f = "show", signature = "LineWise",
   definition = function(object) {
     cat(crayon::yellow$bold(paste0("Instance of '", class(object), "'")),
-        paste0("    R chunk length: ", length(object)),
+        paste0("    Code Chunk length: ", length(object)),
         sep = "\n")
 })
 
